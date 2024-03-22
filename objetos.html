@@ -1,0 +1,137 @@
+<html>
+    <head></head>
+    <body>
+        <script>
+            //OBJETO MATH
+            console.log(Math.sqrt(63));
+
+            //OBJETO DATE
+            var hoje = new Date();
+            console.log(hoje);
+            var fimAno = new Date(2023, 11, 31, 23, 59, 59, 999); // Seta dia e mês
+            console.log(fimAno);
+            fimAno.setFullYear(hoje.getFullYear()); // Seta o ano para esse ano
+            console.log(fimAno);
+
+            var msPorDia = 24 * 60 * 60 * 1000; // Quantidade de milisegundos por dia
+            var diasRestantes = (fimAno.getTime() - hoje.getTime()) / msPorDia;
+            var diasRestantes = Math.round(diasRestantes); //retorna os dias restantes no ano
+            console.log(diasRestantes);
+
+            var IPOdate = new Date();
+            IPOdate.setTime(Date.parse("Aug 9, 1995"));
+
+            function JSClock() {
+                var tempo = new Date();
+                var hora = tempo.getHours();
+                var minuto = tempo.getMinutes();
+                var segundo = tempo.getSeconds();
+                var temp = "" + ((hora > 12) ? hora - 12 : hora);
+                if (hora == 0)
+                    temp = "12";
+                temp += ((minuto < 10) ? ":0" : ":") + minuto;
+                temp += ((segundo < 10) ? ":0" : ":") + segundo;
+                temp += (hora >= 12) ? " P.M." : " A.M.";
+                return temp;
+            }
+
+            console.log(JSClock());
+
+            //ARRAYS
+            var cores = ["preta", "branca", "amarela", "verde"];
+            console.log(cores.join(" - "));
+            console.log(cores[2]);
+            cores.push("marrom"); //adiciona na proxima posicão disponível
+            var ultimo = cores.pop(); //retira o último elemento e retorna o elemento
+            console.log(cores.join(" - "));
+
+            var excluido = cores.pop();
+            console.log(cores.join(" - "));
+            console.log(excluido);
+
+            cores.unshift("cinza", "vermelho");
+            console.log(cores.join(" - "));
+
+            excluido = cores.shift();
+            console.log(cores.join(" - "));
+            console.log(excluido);
+
+            var selecao = cores.slice(1,3);
+            console.log(selecao.join(" - "));
+
+            cores.reverse();
+            console.log(cores.join(" - "));
+
+            cores.sort();
+            console.log(cores.join(" - "));
+
+            console.log(cores.indexOf("amarela", 1));
+
+            var lista = cores.join(" - ");
+            console.log(lista);
+
+            var novasCores = cores.concat("lilas", "vermelha", "cinza");
+            console.log(novasCores);
+
+            var estudantes = [];
+            estudantes[0] = "Maikel";
+            estudantes[1] = "Antony";
+
+            var teste3 = estudantes.concat(novasCores);
+            console.log(teste3);
+
+            console.log(estudantes[1]);
+
+            var turmaWeb1 = new Array(22);
+            turmaWeb1[46] = "teste";
+            console.log(turmaWeb1);
+
+            var exemplo = [22];
+
+            var gatos = ['Dusty', 'Misty', 'Twiggy'];
+            console.log(gatos.length); // 3
+
+            gatos.length = 2;
+            console.log(gatos); // mostra "Dusty, Misty" - Twiggy foi removido
+
+            gatos.length = 0;
+            console.log(gatos); // nada é apresentado; o array gatos está vazio
+
+            gatos.length = 3;
+            console.log(gatos); // [undefined, undefined, undefined]
+
+            var cores = ['vermelho', 'verde', 'azul'];
+            for (var i = 0; i < cores.length; i++) {
+                console.log(cores[i]);
+            }
+
+            cores.forEach(function(cor) {
+                console.log(cor);
+            });
+
+            var array = ['primeiro', 'segundo', , 'quarto'];
+
+            array.forEach(function(elemento) {
+                console.log(elemento);
+            })
+            // primeiro
+            // segundo
+            // quarto
+
+            if (array[2] === undefined) {
+                console.log('array[2] is undefined'); // verdadeiro
+            }
+
+            array = ['primeiro', 'segundo', undefined, 'quarto'];
+
+            array.forEach(function(elemento) {
+                console.log(elemento);
+            });
+            // primeiro
+            // segundo
+            // undefined
+            // quarto
+
+        </script>
+    </body>
+</html>
